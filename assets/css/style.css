@@ -4,36 +4,47 @@
     font-weight: bold; 
 }
 
-#crystal-1,
-#crystal-2,
-#crystal-3,
-#crystal-4{
+.crystal{
     width: 100px;
     height: 100px;
     content: "";
     rotate: 90deg;
     transform: rotate(45deg);
     margin: 30px 50px;
+
+    border-bottom: 5px solid rgba(255, 255, 255, .4);
+    border-right: 5px solid rgba(255, 255, 255, .4);
+    border-left: 5px solid rgba(255, 255, 255, .8);
+    border-top: 5px solid rgba(255, 255, 255, .8);
+    outline:none !important;
+}
+
+.crystal:active{
+    border-bottom: 5px solid rgba(255, 255, 255, .8);
+    border-right: 5px solid rgba(255, 255, 255, .8);
+    border-left: 5px solid rgba(255, 255, 255, .4);
+    border-top: 5px solid rgba(255, 255, 255, .4);
+    outline:none !important;
 }
 
 #crystal-1{ 
-    background-color: #ff0000;
-    color:#ff0000;
+    background-color: #962D3E;
+    color:#962D3E;
 }
 
 #crystal-2{ 
-    background-color: #00ff00;
-    color:#00ff00;
+    background-color: #343642;
+    color:#343642;
 }
 
 #crystal-3{ 
-    background-color: #0000ff;
-    color:#0000ff;
+    background-color: #979C9C;
+    color:#979C9C;
 }
 
 #crystal-4{ 
-    background-color: teal;
-    color:teal;
+    background-color: #348899;
+    color:#348899;
 }
 
 button:hover{ opacity:0.6; }
@@ -46,3 +57,5 @@ button .value{
 button:hover .value{
     color:rgba(255, 255, 255, 0.6);
 }
+
+.card{ margin: 20px 0; }

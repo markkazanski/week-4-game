@@ -29,9 +29,11 @@ var theGame = {
     crystal3:0,
     crystal4:0,
     initialize: function(){
+        this.score = 0;
         $("#score").text(this.score);
         $("#wins").text(this.wins);    
         $("#losses").text(this.losses);
+        $("button .value").text(" ");
 
         this.randomNumber = randomIntFromInterval(19, 120);
         $("#random-number").text(theGame.randomNumber);
@@ -40,6 +42,8 @@ var theGame = {
         this.crystal2 = randomIntFromInterval(1, 12);
         this.crystal3 = randomIntFromInterval(1, 12);
         this.crystal4 = randomIntFromInterval(1, 12);
+
+        $("#restart").css("display", "none");
     },
 
     lostGame: function(){
@@ -58,12 +62,14 @@ var theGame = {
 
     checkStatus: function(){
         if(this.lostGame()){
-            $("#score").append("<span id='message'>YOU LOST</span>");
+            $("#score").append(" <span id='message'>YOU LOST</span>");
+            $("#restart").css("display", "inline");
             this.losses++;
             $("#losses").text(this.losses);
         }
         else if(this.wonGame()){
-            $("#score").append("<span id='message'>YOU WON</span>");
+            $("#score").append(" <span id='message'>YOU WON</span>");
+            $("#restart").css("display", "inline");
             this.wins++;
             $("#wins").text(this.wins);
         }
@@ -74,28 +80,44 @@ var theGame = {
 $(document).ready(function() {
     theGame.initialize();
 
-    $("button").on("click", function(){
-        theGame.checkStatus();
-    });
-
    $("#crystal-1").on("click", function(){
-        theGame.score += theGame.crystal1;
-        $("#score").text(theGame.score);
+        if(!theGame.wonGame() && !theGame.lostGame()){
+            theGame.score += theGame.crystal1;
+            $("#score").text(theGame.score);
+            $("#crystal-1 .value").text(theGame.crystal1);
+            theGame.checkStatus();
+        }
     });
     
     $("#crystal-2").on("click", function(){
-        theGame.score += theGame.crystal2;
-        $("#score").text(theGame.score);
+        if(!theGame.wonGame() && !theGame.lostGame()){
+            theGame.score += theGame.crystal2;
+            $("#score").text(theGame.score);
+            $("#crystal-2 .value").text(theGame.crystal2);
+            theGame.checkStatus();
+        }
     });
     
     $("#crystal-3").on("click", function(){
-        theGame.score += theGame.crystal3;
-        $("#score").text(theGame.score);
+        if(!theGame.wonGame() && !theGame.lostGame()){
+            theGame.score += theGame.crystal3;
+            $("#score").text(theGame.score);
+            $("#crystal-3 .value").text(theGame.crystal3);
+            theGame.checkStatus();
+        }
     });
     
     $("#crystal-4").on("click", function(){
-        theGame.score += theGame.crystal4;
-        $("#score").text(theGame.score);
+        if(!theGame.wonGame() && !theGame.lostGame()){
+            theGame.score += theGame.crystal4;
+            $("#score").text(theGame.score);
+            $("#crystal-4 .value").text(theGame.crystal4);
+            theGame.checkStatus();
+        }
+    });
+
+    $("#restart").on("click", function(){
+        theGame.initialize();
     });
 
 });

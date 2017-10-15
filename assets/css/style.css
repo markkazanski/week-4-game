@@ -1,0 +1,48 @@
+#restart{ 
+    display:none;     
+    font-size: 1.3em;
+    font-weight: bold; 
+}
+
+#crystal-1,
+#crystal-2,
+#crystal-3,
+#crystal-4{
+    width: 100px;
+    height: 100px;
+    content: "";
+    rotate: 90deg;
+    transform: rotate(45deg);
+    margin: 30px 50px;
+}
+
+#crystal-1{ 
+    background-color: #ff0000;
+    color:#ff0000;
+}
+
+#crystal-2{ 
+    background-color: #00ff00;
+    color:#00ff00;
+}
+
+#crystal-3{ 
+    background-color: #0000ff;
+    color:#0000ff;
+}
+
+#crystal-4{ 
+    background-color: teal;
+    color:teal;
+}
+
+button:hover{ opacity:0.6; }
+
+button .value{
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+
+button:hover .value{
+    color:rgba(255, 255, 255, 0.6);
+}
